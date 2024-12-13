@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ASP_Caching.Models.Product>
+@* <table class="table"> *@
+@* 	<thead> *@
+@* 		<tr> *@
+@* 			<th>Product ID</th> *@
+@* 			<th>Product Name</th> *@
+@* 			<th>Product Price</th> *@
+@* 			<th>Action</th> *@
+			
+@* 		</tr> *@
+@* 	</thead> *@
+@* 	<tbody> *@
+@* 		@foreach(var product in Model){ *@
+@* 			<tr> *@
+@* 				<td> *@
+@* 					@product.productId *@
+@* 				</td> *@
+@* 				<td> *@
+@* 					@product.productTitle *@
+@* 				</td> *@
+@* 				<td> *@
+@* 					@product.productPrice *@
+@* 				</td> *@
+@* 				<td> *@
+@* 					<a asp-action="Edit" asp-route-id="@product.productId" >Details</a> *@
+@* 				</td> *@
+				
+@* 			</tr> *@
+@* 		} *@
+@* 	</tbody> *@
+	
+@* </table> *@
+
+<style>
+	.productListContainer{
+		display:flex;
+		flex-wrap:wrap;
+		gap: 2px
+	}
+
+	.product{
+		width:30%;
+		aspect-ratio:1;
+	}
+
+	.product img{
+		width:80%;
+		aspect-ratio : 1;
+	}
+</style>
+<form method="get" asp-action="FilterList" asp-controller="Home">
+
+
+</form>
+
+<div class="productListContainer container-fluid">
+	@foreach (var item in Model)
+	{
+		<div class="product card" >
+			<img src="@item.productImages[0]" class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">@item.productTitle</h5>
+				<p class="card-text">@item.productDescription</p>
+				<a asp-action="Edit" asp-route-id="@item.productId" class="btn btn-primary">MoreInfo</a>
+			</div>
+		</div>
+
+	}
+</div>
+

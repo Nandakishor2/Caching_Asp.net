@@ -1,0 +1,67 @@
+﻿@model ASP_Caching.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="product-details-container">
+    <h1>@Model.productTitle</h1>
+
+    <div class="product-image">
+        <img class="w-25 h-25" src="@Model.productImages[0]" alt="@Model.productTitle" />
+    </div>
+
+    <div class="product-description">
+        <h3>Description</h3>
+        <p>@Model.productDescription</p>
+    </div>
+
+    <div class="product-specifications">
+        <h3>Specifications</h3>
+        <ul>
+            <li><strong>Category:</strong> @Model.productCategory</li>
+            <li><strong>Brand:</strong> @Model.productBrand</li>
+            <li><strong>Rating:</strong> @Model.productRating</li>
+            <li><strong>Price:</strong> $@Model.productPrice</li>
+            <li><strong>Stock:</strong> @Model.productStock</li>
+        </ul>
+    </div>
+
+    <div class="product-actions">
+        <input type="hidden"  name="productId" value="@Model.productId" />
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+        
+    </div>
+</div>
+
+<style>
+    .product-details-container {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .product-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product-description {
+        margin-top: 20px;
+    }
+
+    .product-specifications ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .product-specifications li {
+        margin: 5px 0;
+    }
+
+    .product-actions {
+        margin-top: 20px;
+    }
+</style>
